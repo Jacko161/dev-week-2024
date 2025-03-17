@@ -6,9 +6,10 @@ volumes:
 services:
   app:
     container_name: javadev
-    build: 
-      context: .
-      dockerfile: Dockerfile
+    image:  ghcr.io/jacko161/dev-week-2024:master
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
     environment:
       # NOTE: POSTGRES_DB/USER/PASSWORD should match values in db container
         POSTGRES_PASSWORD: postgres
