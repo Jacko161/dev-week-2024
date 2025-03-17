@@ -6,7 +6,7 @@ volumes:
 services:
   app:
     container_name: javadev
-    image:  ghcr.io/jacko161/dev-week-2024:master
+    image:  ghcr.io/jacko161/dev-week-2024:v0.0.3
 #    build:
 #      context: .
 #      dockerfile: Dockerfile
@@ -43,3 +43,12 @@ services:
 
     # Add "forwardPorts": ["5432"] to **devcontainer.json** to forward PostgreSQL locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
+  proxy:
+    container_name: nginx
+    image: nginx:latest
+    restart: unless-stopped
+    network_mode: service:db
+    volumes:
+      - ../nginx/templates:/etc/nginx/templates
+    environment:
+      NGINX_PORT: 3000
