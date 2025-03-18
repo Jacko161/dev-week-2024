@@ -6,6 +6,8 @@ volumes:
 services:
   app:
     container_name: javadev
+    depends_on:
+      - db
     image:  ghcr.io/jacko161/dev-week-2024:v0.0.3
 #    build:
 #      context: .
@@ -52,3 +54,9 @@ services:
       - ../nginx/templates:/etc/nginx/templates
     environment:
       NGINX_PORT: 3000
+
+  rabbit:
+    container_name: rabbit
+    image: rabbitmq:management
+    restart: unless-stopped
+    network_mode: service:db
