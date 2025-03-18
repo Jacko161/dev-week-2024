@@ -50,6 +50,7 @@ dependencies {
 flyway {
     url = 'jdbc:postgresql://localhost:5432/postgres'
     user = 'postgres'
+    createSchemas = "true"
 }
 
 

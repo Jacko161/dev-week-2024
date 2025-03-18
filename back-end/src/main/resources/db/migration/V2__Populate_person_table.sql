@@ -1,0 +1,1 @@
+INSERT INTO devweek.person(name, email) VALUES ('Hello, World!', 'test123@test.com');
