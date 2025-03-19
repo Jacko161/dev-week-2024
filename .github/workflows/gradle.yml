@@ -16,6 +16,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container: ghcr.io/jacko161/dev-week-2024:v0.0.3
     permissions:
       contents: read
     steps:
