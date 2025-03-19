@@ -8,6 +8,7 @@ import org.springframework.amqp.core.MessageProperties;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.support.converter.SimpleMessageConverter;
+import org.springframework.dao.DataAccessException;
 import org.springframework.dao.InvalidDataAccessResourceUsageException;
 import org.springframework.stereotype.Component;
 
@@ -31,11 +32,10 @@ public class RabbitConsumer {
     @RabbitListener(queues = CommonRabbitConfig.QUEUE_NAME)
     public void processMessage(Message content) {
         String searchCriteria = new String(content.getBody(), StandardCharsets.UTF_8);
-        System.out.println(searchCriteria);
         Optional<Person> foundPerson;
         try {
             foundPerson = personRepository.findByName(searchCriteria);
-        } catch (InvalidDataAccessResourceUsageException e){
+        } catch (DataAccessException e){
             foundPerson = Optional.empty();
         }
         MessageProperties messageProperties = new MessageProperties();
