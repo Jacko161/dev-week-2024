@@ -1,4 +1,6 @@
 # My Dev Week Project for 2024
+<img src="https://github.com/Jacko161/dev-week-2024/actions/workflows/gradle.yml/badge.svg">
+
 Dev weeks are a perk of working at Instaclustr - this year (even though I am doing this late cause ie in 2025) is to setup a contained development environment using development containers (https://containers.dev/)
 
 These containers are powerful development tools, allowing large teams to have homogenous development environments, minimising the amount of "it works on my machine" issues you may have. It also allows development environments to more closely mirror production runtimes.
